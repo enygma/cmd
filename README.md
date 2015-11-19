@@ -14,7 +14,6 @@ composer require enygma/cmd
 ### Example Usage:
 
 ```php
-
 <?php
 
 require_once 'vendor/autoload.php';
@@ -23,7 +22,7 @@ use Cmd\Command;
 $cmd = new Command();
 $args = $cmd->execute($_SERVER['argv']);
 
-var_export($args);
+echo 'RESULT: '.var_export($args, true)."\n";
 
 ?>
 ```
