@@ -1,0 +1,26 @@
+{
+    "name":"enygma/cmd",
+    "type":"library",
+    "description":"A simple command line option parser",
+    "keywords":["command", "parse", "argument"],
+    "homepage":"https://github.com/enygma/cmd.git",
+    "license":"MIT",
+    "authors":[
+        {
+            "name":"Chris Cornutt",
+            "email":"ccornutt@phpdeveloper.org",
+            "homepage":"http://www.phpdeveloper.org/"
+        }
+    ],
+    "autoload":{
+        "psr-4":{
+            "Cmd\\":"src/"
+        }
+    },
+    "require":{
+        "php":">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.1.4"
+    }
+}
