@@ -1,4 +1,6 @@
 language: php
+before_script:
+  - php composer install --dev
 php:
   - 5.6
 script: phpunit tests/
