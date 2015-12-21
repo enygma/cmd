@@ -25,8 +25,6 @@ class Command
         }
 
         foreach ($args as $argument) {
-            echo print_r($argument, true)."\n";
-
             list($name, $value) = Parse::execute($argument);
 
             // see if we can find a matching option
