@@ -1,6 +1,8 @@
 Command line argument parsing
 =================================
 
+[![Travis-CI Build Status](https://secure.travis-ci.org/enygma/cmd.png?branch=master)](http://travis-ci.org/enygma/cmd)
+
 This library provides a simple interface for parsing the `$_SERVER['argv']` input values out into key/value pairs.
 
 ### Installation
