@@ -1,9 +1,12 @@
-Command line argument parsing
+Command Line Tools
 =================================
 
 [![Travis-CI Build Status](https://secure.travis-ci.org/enygma/cmd.png?branch=master)](http://travis-ci.org/enygma/cmd)
 
-This library provides a simple interface for parsing the `$_SERVER['argv']` input values out into key/value pairs.
+This library provides some handy utilities for working on the command line:
+
+- a simple interface for parsing the `$_SERVER['argv']` input values out into key/value pairs (`Command`)
+- an output handling library making formatted output easy (`Output`)
 
 ### Installation
 
@@ -25,11 +28,10 @@ $cmd = new Command();
 $args = $cmd->execute($_SERVER['argv']);
 
 echo 'RESULT: '.var_export($args, true)."\n";
-
 ?>
 ```
 
-### Example Output
+### Command: Example
 
 For the command line call of:
 
@@ -57,7 +59,7 @@ Array
 
 Options that are either plain arguments (like `plain-arg` or `plain arg 3`) will just be added to the results with numeric indexes. The other options will be assiged as key/value pairs in the resulting array. For values that are set (like `-abc` or `--foo`) but don't have a value, the value will be set to the boolean `true`.
 
-### Required and default
+### Command: Required and default
 
 You can also set up default values and required parameters for your command line options. Use the optional second paramster on the `execute` method call to define these:
 
@@ -81,3 +83,39 @@ echo 'RESULT: '.var_export($args, true)."\n";
 ```
 
 The `default` values are defined as an array of parameter name => default value. The `required` settings are just presented as an array of option names.
+
+### Output: Example
+
+```php
+<?php
+
+require_once 'vendor/autoload.php';
+use Cmd\Output;
+
+$out = new Output();
+$out->success('Success message goes here!');
+?>
+```
+
+Default methods:
+
+- `success`
+- `warning`
+- `info`
+- `error`
+
+You can also define a custom type if you want a reusable format:
+
+```php
+<?php
+require_once 'vendor/autoload.php';
+use Cmd\Output;
+
+$out = new Output();
+$out->addType('custom1', 'white', 'blue');
+
+$out->custom1('A custom message');
+?>
+```
+
+The first parameter is the name of the custom format. The second and third are the foreground and background colors.
