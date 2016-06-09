@@ -8,7 +8,8 @@ class Output
         'error' => ['white', 'red'],
         'info' => ['white', 'blue'],
         'warning' => ['white', 'yellow'],
-        'success' => ['white', 'green']
+        'success' => ['white', 'green'],
+        'none' => ['', '']
     ];
 
     const RESET = "\033[0m";
@@ -63,10 +64,15 @@ class Output
 
     public function output($message, array $colors, $return = false)
     {
-        $fg = $this->resolvefg($colors[0]);
-        $bg = $this->resolvebg($colors[1]);
+        if (empty($colors[0]) && empty($colors[1])) {
+            $fg = self::RESET;
+            $bg = self::RESET;
+        } else {
+            $fg = $this->resolvefg($colors[0]);
+            $bg = $this->resolvebg($colors[1]).self::BOLD;
+        }
 
-        $string = $fg.$bg.self::BOLD.$message.self::RESET;
+        $string = $fg.$bg.$message.self::RESET;
         if ($return === true) {
             return $string;
         } else {
