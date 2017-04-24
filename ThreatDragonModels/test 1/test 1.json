@@ -1,0 +1,16 @@
+{
+  "summary": {
+    "title": "test 1",
+    "description": "this is just a test"
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": []
+  },
+  "location": {
+    "organisation": "enygma",
+    "repo": "cmd",
+    "branch": "master",
+    "model": "test 1"
+  }
+}
