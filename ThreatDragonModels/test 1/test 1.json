@@ -4,8 +4,18 @@
     "description": "this is just a test"
   },
   "detail": {
-    "contributors": [],
-    "diagrams": []
+    "contributors": [
+      {
+        "name": "chris.cornutt"
+      }
+    ],
+    "diagrams": [
+      {
+        "title": "new1",
+        "thumbnail": "../public/content/images/thumbnail.jpg",
+        "id": 0
+      }
+    ]
   },
   "location": {
     "organisation": "enygma",
